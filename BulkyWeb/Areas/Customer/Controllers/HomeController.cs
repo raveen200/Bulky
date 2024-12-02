@@ -35,10 +35,8 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
                 Count =1,
                 ProductId=productId
 
-
-
-
             };
+
            
             return View(cart);
         }
@@ -62,9 +60,10 @@ namespace BulkyBookWeb.Areas.Customer.Controllers
             {
                 _unitOfWorks.ShoppingCart.Add(shoppingCart);
             }
+            TempData["success"] = "Item added to cart successfully";
 
-           
-           
+
+
             _unitOfWorks.Save();
             
             return RedirectToAction(nameof(Index));
